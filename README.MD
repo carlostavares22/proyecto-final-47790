@@ -51,7 +51,7 @@ copiar y pegar en cualquier browser: `http://127.0.0.1:8000/` y comprobar que el
 
 1. Checkear que nuestro proyecto tenga 1 archivo `urls.py` en el directorio `ProyectoCoder/`
 2. Crear un archivo exactamente igual pero en el directorio `AppCoder`
-3. Modificar el nuevo archivo `AppCoder/urls.py` para que contenga una ruta llamada `cursos`: `patch("incio/", inicio_view),`
+3. Modificar el nuevo archivo `AppCoder/urls.py` para que contenga una ruta llamada `cursos`: `patch("incio/", start_view),`
 4. Crear una función para "hacerse cargo" de los pedidos en la ruta `cursos`, la llamaremos `cursos_view`
 5. Registrar las rutas definidas por el archivo `AppCoder/urls.py` en el archivo `urls.py` general del proyecto: `ProyectoCoder/urls.py`
 6. Checkear que la ruta funcione entrando a:  `http://127.0.0.1:8000/cursos`
@@ -70,8 +70,8 @@ copiar y pegar en cualquier browser: `http://127.0.0.1:8000/` y comprobar que el
 
 ### Funcionamiento básico de templates
 1. Crear un directorio llamado `templates` dentro del directorio `AppCoder`, luego crear otro directorio dentro de `templates` llamado `AppCoder` (sí, se repite)
-2. Crear un archivo `padre.html` en ese directorio: `ProyectoCoder/ProyectoFinal/AppCoder/templates/AppCoder/padre.html` y llenarlo con cualquier contenido
-3. Modificaremos la función `cursos_view` (desde ahora la llamaremos **vista**) que _se hace cargo_ de la ruta `AppCoder/cursos` para que entregue el contenido del archivo `padre.html`
+2. Crear un archivo `father.html` en ese directorio: `ProyectoCoder/ProyectoFinal/AppCoder/templates/AppCoder/father.html` y llenarlo con cualquier contenido
+3. Modificaremos la función `courses_view` (desde ahora la llamaremos **vista**) que _se hace cargo_ de la ruta `AppCoder/courses` para que entregue el contenido del archivo `father.html`
 
 **nota**: en el archivo `settings.py` hay una variable del tipo diccionario que se llama `TEMPLATES`. Esta variable contiene un par clave valor: ` "APP_DIRS": True,`
 ```python
@@ -95,13 +95,13 @@ esta es la manera de informarle a `Django` que queremos que utilice los template
 
 
 ### Herencia
-1. Vamos a crear un template llamado `cursos.html` que herede el contenido de `padre.html`
-2. Reemplazamos el template `padre.html` utilizado por `cursos_view` por `cursos.html`
+1. Vamos a crear un template llamado `cursos.html` que herede el contenido de `father.html`
+2. Reemplazamos el template `father.html` utilizado por `courses_view` por `cursos.html`
 3. Agregamos en `cursos.html`
     ```html
-    {% extends "AppCoder/padre.html" %}
+    {% extends "AppCoder/father.html" %}
     ```
-4. Agregamos en `padre.html`
+4. Agregamos en `father.html`
     ```html
     {% block contenidoQueCambia %}
     {% endblock %}
