@@ -1,3 +1,10 @@
 from django.shortcuts import render
+from django.http import HttpResponse
 
-# Create your views here.
+def start_view (request):
+    return HttpResponse("Bienvenidos")
+
+
+def courses_view (request):
+    #return HttpResponse("Aquí mostraré los cursos")
+    return render (request, 'AppCoder/father.html')
